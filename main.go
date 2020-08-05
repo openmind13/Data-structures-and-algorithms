@@ -4,16 +4,18 @@ import (
 	"fmt"
 
 	"github.com/openmind13/data-structures-and-algorithms/binarytree"
+	"github.com/openmind13/data-structures-and-algorithms/linkedlist"
 	"github.com/openmind13/data-structures-and-algorithms/stack"
 )
 
 func main() {
 	fmt.Printf("------------------------------\n")
 	fmt.Printf("data-structures-and-algorithms\n")
-	fmt.Printf("------------------------------\n")
+	// fmt.Printf("------------------------------\n")
 
 	// testBinaryTree()
-	testStack()
+	// testStack()
+	testLinkedList()
 }
 
 func testBinaryTree() {
@@ -56,4 +58,27 @@ func testStack() {
 	stack.Print()
 
 	fmt.Println(stack.Size())
+}
+
+func testLinkedList() {
+	fmt.Printf("-------------------\n")
+	fmt.Printf("testing linked list\n")
+	fmt.Printf("-------------------\n")
+
+	list := linkedlist.New()
+	//fmt.Println(list.IsEmpty())
+
+	list.AddHead(10)
+	list.AddHead(500)
+	list.AddTail(300)
+	for i := 0; i < 10; i++ {
+		list.AddHead(i)
+	}
+	list.Print()
+
+	list.Clear()
+	// fmt.Println("after clear")
+
+	// fmt.Println(list.IsEmpty())
+	// list.Print()
 }

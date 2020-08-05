@@ -29,11 +29,11 @@ func (tree *Tree) Add(value int) {
 			right: nil,
 		}
 	} else {
-		addNode(tree.root, value)
+		addNodeRecursively(tree.root, value)
 	}
 }
 
-func addNode(node *nodeType, value int) *nodeType {
+func addNodeRecursively(node *nodeType, value int) *nodeType {
 	if node == nil {
 		return &nodeType{
 			value: value,
@@ -41,9 +41,9 @@ func addNode(node *nodeType, value int) *nodeType {
 			right: nil,
 		}
 	} else if value < node.value {
-		node.left = addNode(node.left, value)
+		node.left = addNodeRecursively(node.left, value)
 	} else if value >= node.value {
-		node.right = addNode(node.right, value)
+		node.right = addNodeRecursively(node.right, value)
 	}
 
 	return node
@@ -51,7 +51,11 @@ func addNode(node *nodeType, value int) *nodeType {
 
 // RemoveItem ...
 func (tree *Tree) RemoveItem(value int) {
+	removeItemRecursively(tree.root, value)
+}
 
+func removeItemRecursively(node *nodeType, value int) *nodeType {
+	return nil
 }
 
 // IsEmpty ...
@@ -66,14 +70,6 @@ func (tree *Tree) Clear() {
 	// gc will delete all unattainable nodes
 	tree.root = nil
 }
-
-// func clear(node *nodeType) {
-// 	if node != nil {
-// 		clear(node.left)
-// 		clear(node.right)
-// 		node = nil
-// 	}
-// }
 
 // Print ...
 func (tree *Tree) Print() {

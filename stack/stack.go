@@ -52,3 +52,8 @@ func (stack *Stack) Size() int {
 func (stack *Stack) Top() int {
 	return stack.buffer[len(stack.buffer)-1]
 }
+
+// IsEmpty ...
+func (stack *Stack) IsEmpty() bool {
+	return stack.buffer == nil
+}

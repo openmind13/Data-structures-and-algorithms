@@ -49,6 +49,16 @@ func addNode(node *nodeType, value int) *nodeType {
 	return node
 }
 
+// RemoveItem ...
+func (tree *Tree) RemoveItem(value int) {
+
+}
+
+// IsEmpty ...
+func (tree *Tree) IsEmpty() bool {
+	return tree.root == nil
+}
+
 // Clear ...
 func (tree *Tree) Clear() {
 	// clear(tree.root)

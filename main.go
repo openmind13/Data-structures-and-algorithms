@@ -13,7 +13,7 @@ func main() {
 	fmt.Printf("------------------------------\n")
 
 	// testBinaryTree()
-	testLinkedList()
+	testStack()
 }
 
 func testBinaryTree() {
@@ -21,6 +21,7 @@ func testBinaryTree() {
 	fmt.Printf("-------------------\n")
 
 	tree := binarytree.New()
+	fmt.Println(tree.IsEmpty())
 	tree.Add(100)
 	tree.Add(10)
 	tree.Add(200)
@@ -40,11 +41,13 @@ func testBinaryTree() {
 	tree.Print()
 }
 
-func testLinkedList() {
+func testStack() {
+	fmt.Printf("-------------\n")
 	fmt.Printf("testing stack\n")
 	fmt.Printf("-------------\n")
 
 	stack := stack.New()
+
 	stack.Push(10)
 	stack.Push(500)
 

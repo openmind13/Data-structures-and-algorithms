@@ -51,8 +51,19 @@ func addNode(node *nodeType, value int) *nodeType {
 
 // Clear ...
 func (tree *Tree) Clear() {
+	// clear(tree.root)
 
+	// gc will delete all unattainable nodes
+	tree.root = nil
 }
+
+// func clear(node *nodeType) {
+// 	if node != nil {
+// 		clear(node.left)
+// 		clear(node.right)
+// 		node = nil
+// 	}
+// }
 
 // Print ...
 func (tree *Tree) Print() {

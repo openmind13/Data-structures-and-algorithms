@@ -116,7 +116,7 @@ func (list *List) AddTail(value int) {
 
 // Clear all list
 func (list *List) Clear() {
-	// gc will delete all unattainable nodes
+	// GC will delete all unattainable nodes
 	list.head = nil
 	list.tail = nil
 

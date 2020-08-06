@@ -2,7 +2,7 @@ package binarytree
 
 import "fmt"
 
-// Tree ...
+// Tree struct
 type Tree struct {
 	root *nodeType
 }
@@ -13,14 +13,14 @@ type nodeType struct {
 	right *nodeType
 }
 
-// New ...
+// New - create new tree
 func New() Tree {
 	return Tree{
 		root: nil,
 	}
 }
 
-// Add ...
+// Add new node to tree
 func (tree *Tree) Add(value int) {
 	if tree.root == nil {
 		tree.root = &nodeType{
@@ -45,11 +45,10 @@ func addNodeRecursively(node *nodeType, value int) *nodeType {
 	} else if value >= node.value {
 		node.right = addNodeRecursively(node.right, value)
 	}
-
 	return node
 }
 
-// RemoveItem ...
+// RemoveItem from tree
 func (tree *Tree) RemoveItem(value int) {
 	removeItemRecursively(tree.root, value)
 }
@@ -58,20 +57,20 @@ func removeItemRecursively(node *nodeType, value int) *nodeType {
 	return nil
 }
 
-// IsEmpty ...
+// IsEmpty - reture bool value
 func (tree *Tree) IsEmpty() bool {
 	return tree.root == nil
 }
 
-// Clear ...
+// Clear - delete all items from tree
 func (tree *Tree) Clear() {
 	// clear(tree.root)
 
-	// gc will delete all unattainable nodes
+	// GC will delete all unattainable nodes
 	tree.root = nil
 }
 
-// Print ...
+// Print - infix print
 func (tree *Tree) Print() {
 	infixPrint(tree.root)
 }

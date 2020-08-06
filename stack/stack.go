@@ -1,32 +1,42 @@
 package stack
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-// Stack ...
+// ItemType - type of items
+type ItemType int
+
+// Stack struct
 type Stack struct {
-	buffer []int
+	buffer []ItemType
 }
 
-// New ...
+// New - create new stack
 func New() Stack {
 	return Stack{
 		buffer: nil,
 	}
 }
 
-// Push ...
-func (stack *Stack) Push(value int) {
+// Push item on top of stack
+func (stack *Stack) Push(value ItemType) {
 	stack.buffer = append(stack.buffer, value)
 }
 
-// Pop ...
-func (stack *Stack) Pop() int {
+// Pop item from top
+func (stack *Stack) Pop() (ItemType, error) {
+	if stack.IsEmpty() {
+		return 0, errors.New("Stack is empty")
+	}
+
 	last := stack.buffer[len(stack.buffer)-1]
 	stack.buffer = stack.buffer[:len(stack.buffer)-1]
-	return last
+	return last, nil
 }
 
-// Print ...
+// Print stack
 func (stack *Stack) Print() {
 	fmt.Printf("_______________\n")
 
@@ -43,17 +53,22 @@ func (stack *Stack) Print() {
 	fmt.Printf("^^^^^^^^^^^^^^^\n")
 }
 
-// Size ...
+// Clear - delete all items from stack
+func (stack *Stack) Clear() {
+	stack.buffer = nil
+}
+
+// Size - return count of items
 func (stack *Stack) Size() int {
 	return len(stack.buffer)
 }
 
-// Top ...
-func (stack *Stack) Top() int {
+// Top - return top value
+func (stack *Stack) Top() ItemType {
 	return stack.buffer[len(stack.buffer)-1]
 }
 
-// IsEmpty ...
+// IsEmpty return bool value
 func (stack *Stack) IsEmpty() bool {
 	return stack.buffer == nil
 }

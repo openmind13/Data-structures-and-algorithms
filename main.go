@@ -5,6 +5,7 @@ import (
 
 	"github.com/openmind13/data-structures-and-algorithms/binarytree"
 	"github.com/openmind13/data-structures-and-algorithms/linkedlist"
+	"github.com/openmind13/data-structures-and-algorithms/queue"
 	"github.com/openmind13/data-structures-and-algorithms/stack"
 )
 
@@ -15,7 +16,8 @@ func main() {
 
 	// testBinaryTree()
 	// testStack()
-	testLinkedList()
+	// testLinkedList()
+	testQueue()
 }
 
 func testBinaryTree() {
@@ -58,6 +60,9 @@ func testStack() {
 	stack.Print()
 
 	fmt.Println(stack.Size())
+
+	stack.Clear()
+	stack.Print()
 }
 
 func testLinkedList() {
@@ -74,6 +79,7 @@ func testLinkedList() {
 	for i := 0; i < 10; i++ {
 		list.AddHead(i)
 	}
+	fmt.Println(list.Size())
 	list.Print()
 
 	list.Clear()
@@ -81,4 +87,25 @@ func testLinkedList() {
 
 	// fmt.Println(list.IsEmpty())
 	// list.Print()
+}
+
+func testQueue() {
+	fmt.Printf("-------------\n")
+	fmt.Printf("testing queue\n")
+	fmt.Printf("-------------\n")
+
+	queue := queue.New()
+	// fmt.Println(queue.IsEmpty())
+	queue.Add(10)
+	queue.Add(20)
+	queue.Add(30)
+	queue.Print()
+	queue.Add(50)
+	queue.Print()
+	fmt.Println(queue.Get())
+	queue.Print()
+	fmt.Println(queue.Size())
+
+	slice := queue.Dequeue()
+	fmt.Println(slice)
 }

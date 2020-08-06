@@ -14,6 +14,18 @@ stack.Size()
 stack.Top()
 ```
 
+## Queue
+
+```
+queue := queue.New()
+queue.Add(10)
+queue.Print()
+queue.Get()
+queue.IsEmpty()
+queue.Size()
+queue.Dequeue()
+```
+
 ## Binary tree
 
 ```

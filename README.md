@@ -14,7 +14,7 @@ stack.Size()
 stack.Top()
 ```
 
-## Binary Tree
+## Binary tree
 
 ```
 tree := binarytree.New()
@@ -27,4 +27,18 @@ tree.Clear()
 tree.IsEmpty()
 
 // tree.RemoveItem(10)
+```
+
+## Linked list
+
+```
+list := linkedlist.New()
+list.AddHead(10)
+list.AddTail(20)
+list.Print()
+list.Clear()
+list.IsEmpty()
+list.Size()
+
+// list.AddItem(2, 500)
 ```

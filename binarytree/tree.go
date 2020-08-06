@@ -2,13 +2,16 @@ package binarytree
 
 import "fmt"
 
+// ItemType - type of items
+type ItemType int
+
 // Tree struct
 type Tree struct {
 	root *nodeType
 }
 
 type nodeType struct {
-	value int
+	value ItemType
 	left  *nodeType
 	right *nodeType
 }
@@ -21,7 +24,7 @@ func New() Tree {
 }
 
 // Add new node to tree
-func (tree *Tree) Add(value int) {
+func (tree *Tree) Add(value ItemType) {
 	if tree.root == nil {
 		tree.root = &nodeType{
 			value: value,
@@ -33,7 +36,7 @@ func (tree *Tree) Add(value int) {
 	}
 }
 
-func addNodeRecursively(node *nodeType, value int) *nodeType {
+func addNodeRecursively(node *nodeType, value ItemType) *nodeType {
 	if node == nil {
 		return &nodeType{
 			value: value,
@@ -49,11 +52,11 @@ func addNodeRecursively(node *nodeType, value int) *nodeType {
 }
 
 // RemoveItem from tree
-func (tree *Tree) RemoveItem(value int) {
+func (tree *Tree) RemoveItem(value ItemType) {
 	removeItemRecursively(tree.root, value)
 }
 
-func removeItemRecursively(node *nodeType, value int) *nodeType {
+func removeItemRecursively(node *nodeType, value ItemType) *nodeType {
 	return nil
 }
 

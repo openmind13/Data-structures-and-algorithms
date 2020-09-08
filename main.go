@@ -14,10 +14,10 @@ func main() {
 	fmt.Printf("data-structures-and-algorithms\n")
 	// fmt.Printf("------------------------------\n")
 
-	// testBinaryTree()
+	testBinaryTree()
 	// testStack()
 	// testLinkedList()
-	testQueue()
+	// testQueue()
 }
 
 func testBinaryTree() {
@@ -32,6 +32,7 @@ func testBinaryTree() {
 	tree.Add(10)
 	tree.Add(500)
 	tree.Add(150)
+	fmt.Println(tree.Depth())
 
 	tree.Print()
 	tree.Clear()

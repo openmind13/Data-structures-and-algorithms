@@ -23,6 +23,30 @@ func New() Tree {
 	}
 }
 
+// Depth - return tree depth
+func (tree *Tree) Depth() int {
+	return treeDepth(tree.root)
+}
+
+func treeDepth(node *nodeType) int {
+	if node != nil {
+		leftDepth := treeDepth(node.left)
+		rightDepth := treeDepth(node.right)
+
+		switch leftDepth > rightDepth {
+		case true:
+			return leftDepth + 1
+		case false:
+			return rightDepth + 1
+		default:
+			// left and right depths is equal
+			return leftDepth + 1
+		}
+	}
+
+	return 0
+}
+
 // Add new node to tree
 func (tree *Tree) Add(value ItemType) {
 	if tree.root == nil {

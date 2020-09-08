@@ -26,6 +26,22 @@ queue.Size()
 queue.Dequeue()
 ```
 
+## Linked list
+
+```
+list := linkedlist.New()
+list.AddHead(10)
+list.AddTail(20)
+list.Print()
+list.Clear()
+list.IsEmpty()
+list.Size()
+
+// list.AddItem(2, 500)
+// list.RemoveItem(30)
+// list.Sort()
+```
+
 ## Binary tree
 
 ```
@@ -39,18 +55,8 @@ tree.Clear()
 tree.IsEmpty()
 
 // tree.RemoveItem(10)
+// tree.Balance()
+// tree.SkewRight()
+// tree.SkewLeft()
 ```
 
-## Linked list
-
-```
-list := linkedlist.New()
-list.AddHead(10)
-list.AddTail(20)
-list.Print()
-list.Clear()
-list.IsEmpty()
-list.Size()
-
-// list.AddItem(2, 500)
-```

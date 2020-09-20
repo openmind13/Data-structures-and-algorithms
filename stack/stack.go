@@ -6,7 +6,7 @@ import (
 )
 
 // ItemType - type of items
-type ItemType int
+type ItemType interface{}
 
 // Stack struct
 type Stack struct {
@@ -14,8 +14,8 @@ type Stack struct {
 }
 
 // New - create new stack
-func New() Stack {
-	return Stack{
+func New() *Stack {
+	return &Stack{
 		buffer: nil,
 	}
 }

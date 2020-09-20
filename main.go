@@ -6,18 +6,49 @@ import (
 	"github.com/openmind13/data-structures-and-algorithms/binarytree"
 	"github.com/openmind13/data-structures-and-algorithms/linkedlist"
 	"github.com/openmind13/data-structures-and-algorithms/queue"
+	"github.com/openmind13/data-structures-and-algorithms/sorting"
 	"github.com/openmind13/data-structures-and-algorithms/stack"
 )
 
 func main() {
 	fmt.Printf("------------------------------\n")
-	fmt.Printf("data-structures-and-algorithms\n")
+	fmt.Printf("data-structures-and-algorithms\n\n")
 	// fmt.Printf("------------------------------\n")
 
-	testBinaryTree()
-	// testStack()
-	// testLinkedList()
-	// testQueue()
+	//testBubbleSort()
+	//testQuickSort()
+	//testInsertionSort()
+	//testSelectionSort()
+
+	//testStack()
+	//testQueue()
+
+	testLinkedList()
+
+	// testBinaryTree()
+
+	fmt.Printf("------------------------------\n")
+}
+
+func testBubbleSort() {
+	slice := []int{10, 50, 12, 7, 4, 9, 33, 37}
+	fmt.Println(slice)
+	sortSlice := sorting.BubbleSort(slice)
+	fmt.Println(sortSlice)
+}
+
+func testInsertionSort() {
+	slice := []int{3, 2, 5, 7, 1, 20, -4, 2, 9, 0}
+	fmt.Println(slice)
+	sortedSlice := sorting.InsertionSort(slice)
+	fmt.Println(sortedSlice)
+}
+
+func testSelectionSort() {
+	slice := []int{6, 7, 10, 15, 1, 4, -2, 5}
+	fmt.Println(slice)
+	sortedSlice := sorting.SelectionSort(slice)
+	fmt.Println(sortedSlice)
 }
 
 func testBinaryTree() {
@@ -47,23 +78,25 @@ func testBinaryTree() {
 }
 
 func testStack() {
-	fmt.Printf("-------------\n")
-	fmt.Printf("testing stack\n")
-	fmt.Printf("-------------\n")
+	fmt.Println("testing int stack")
+	intStack := stack.New()
+	intStack.Push(10)
+	intStack.Push(500)
+	fmt.Println(intStack.Top())
+	intStack.Print()
+	fmt.Println(intStack.Size())
+	intStack.Clear()
+	intStack.Print()
 
-	stack := stack.New()
-
-	stack.Push(10)
-	stack.Push(500)
-
-	fmt.Println(stack.Top())
-
-	stack.Print()
-
-	fmt.Println(stack.Size())
-
-	stack.Clear()
-	stack.Print()
+	fmt.Println("testing string stack")
+	stringStack := stack.New()
+	stringStack.Push("hello")
+	stringStack.Push("world")
+	fmt.Println(stringStack.Top())
+	stringStack.Print()
+	fmt.Println(stringStack.Size())
+	stringStack.Clear()
+	stringStack.Print()
 }
 
 func testLinkedList() {
@@ -73,7 +106,6 @@ func testLinkedList() {
 
 	list := linkedlist.New()
 	//fmt.Println(list.IsEmpty())
-
 	list.AddHead(10)
 	list.AddHead(500)
 	list.AddTail(300)
@@ -82,31 +114,38 @@ func testLinkedList() {
 	}
 	fmt.Println(list.Size())
 	list.Print()
-
 	list.Clear()
 	// fmt.Println("after clear")
-
 	// fmt.Println(list.IsEmpty())
 	// list.Print()
 }
 
 func testQueue() {
-	fmt.Printf("-------------\n")
-	fmt.Printf("testing queue\n")
-	fmt.Printf("-------------\n")
-
-	queue := queue.New()
+	fmt.Println("testing int queue")
+	intQueue := queue.New()
 	// fmt.Println(queue.IsEmpty())
-	queue.Add(10)
-	queue.Add(20)
-	queue.Add(30)
-	queue.Print()
-	queue.Add(50)
-	queue.Print()
-	fmt.Println(queue.Get())
-	queue.Print()
-	fmt.Println(queue.Size())
+	intQueue.Add(10)
+	intQueue.Add(20)
+	intQueue.Add(30)
+	intQueue.Print()
+	intQueue.Add(50)
+	intQueue.Print()
+	fmt.Println(intQueue.Get())
+	intQueue.Print()
+	fmt.Println(intQueue.Size())
+	intSlice := intQueue.Dequeue()
+	fmt.Println(intSlice)
 
-	slice := queue.Dequeue()
-	fmt.Println(slice)
+	fmt.Println("testing string queue")
+	stringQueue := queue.New()
+	stringQueue.Add("the")
+	stringQueue.Add("go")
+	stringQueue.Add("programming")
+	stringQueue.Add("language")
+	stringQueue.Print()
+	fmt.Println(stringQueue.Get())
+	stringQueue.Print()
+	fmt.Println(stringQueue.Size())
+	stringSlice := stringQueue.Dequeue()
+	fmt.Println(stringSlice)
 }

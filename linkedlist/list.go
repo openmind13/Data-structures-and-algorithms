@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+// ItemType - type of element
+type ItemType interface{}
+
 // List struct contain information about list
 type List struct {
 	length int
@@ -13,7 +16,7 @@ type List struct {
 }
 
 type nodeType struct {
-	value int
+	value ItemType
 	next  *nodeType
 	prev  *nodeType
 }
@@ -54,7 +57,7 @@ func (list *List) Print() {
 }
 
 // AddItem add item on index
-func (list *List) AddItem(index, value int) error {
+func (list *List) AddItem(index int, value ItemType) error {
 	if index >= list.length {
 		fmt.Printf("Get out of range. Length of list = %d. Valid index = [0 - %d]\n",
 			list.length, list.length-1)
@@ -71,7 +74,7 @@ func (list *List) AddItem(index, value int) error {
 }
 
 // AddHead add item in back of list
-func (list *List) AddHead(value int) {
+func (list *List) AddHead(value ItemType) {
 	if list.head != nil {
 		list.head.next = &nodeType{
 			value: value,
@@ -93,7 +96,7 @@ func (list *List) AddHead(value int) {
 }
 
 // AddTail add item in front of list
-func (list *List) AddTail(value int) {
+func (list *List) AddTail(value ItemType) {
 	if list.tail != nil {
 		list.tail.prev = &nodeType{
 			value: value,

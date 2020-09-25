@@ -6,7 +6,7 @@ import (
 )
 
 // ItemType - type of items
-type ItemType int
+type ItemType interface{}
 
 // Queue struct
 type Queue struct {
@@ -14,8 +14,8 @@ type Queue struct {
 }
 
 // New - create new queue
-func New() Queue {
-	return Queue{
+func New() *Queue {
+	return &Queue{
 		buffer: nil,
 	}
 }

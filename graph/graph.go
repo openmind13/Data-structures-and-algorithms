@@ -14,6 +14,8 @@ type Graph struct {
 
 	incidenceMatrix [][]int
 	adjacencyMatrix [][]int
+
+	tgfFileLines []string
 }
 
 // CountVertexes return vertexes count of current graph
@@ -33,6 +35,23 @@ func (graph *Graph) PrintAdjacencyMatrix() {
 			fmt.Printf("%v\t", graph.adjacencyMatrix[i][j])
 		}
 		fmt.Printf("\n\n\n")
+	}
+}
+
+// PrintIncidenceMatrix ...
+func (graph *Graph) PrintIncidenceMatrix() {
+	for i := 0; i < graph.countVertexes; i++ {
+		for j := 0; j < graph.countArcs; j++ {
+			fmt.Printf("%v\t", graph.incidenceMatrix[i][j])
+		}
+		fmt.Printf("\n\n\n")
+	}
+}
+
+// PrintTGFFile ...
+func (graph *Graph) PrintTGFFile() {
+	for _, str := range graph.tgfFileLines {
+		fmt.Printf("%s", str)
 	}
 }
 
@@ -59,18 +78,16 @@ func NewGraphFromTGFFile(filename string) (*Graph, error) {
 			return nil, err
 		}
 
+		graph.tgfFileLines = append(graph.tgfFileLines, str)
+
 		if strings.Contains(str, "#") {
 			break
 		}
 
 		vertexes++
-		fmt.Printf("%s", str)
-	}
 
-	// init adjacency matrix
-	graph.adjacencyMatrix = make([][]int, vertexes)
-	for i := range graph.adjacencyMatrix {
-		graph.adjacencyMatrix[i] = make([]int, vertexes)
+		// parse str
+		// fmt.Printf("%s", str)
 	}
 
 	// scan arcs
@@ -84,13 +101,29 @@ func NewGraphFromTGFFile(filename string) (*Graph, error) {
 			return nil, err
 		}
 
+		graph.tgfFileLines = append(graph.tgfFileLines, str)
+
 		arcs++
+
+		// parse str
 		//splited := strings.Split(str, " ")
-		fmt.Printf("%s", str)
+		// fmt.Printf("%s", str)
 	}
 
 	graph.countVertexes = vertexes
 	graph.countArcs = arcs / 2
+
+	// init adjacency matrix
+	graph.adjacencyMatrix = make([][]int, graph.countVertexes)
+	for i := range graph.adjacencyMatrix {
+		graph.adjacencyMatrix[i] = make([]int, graph.countVertexes)
+	}
+
+	// init incidence matrix
+	graph.incidenceMatrix = make([][]int, graph.countVertexes)
+	for i := range graph.incidenceMatrix {
+		graph.incidenceMatrix[i] = make([]int, graph.countArcs)
+	}
 
 	return graph, nil
 }

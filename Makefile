@@ -1,4 +1,7 @@
-build:
+start:
 	go build -o main *.go && ./main
 
-.DEFAULT_GOAL := build
+test:
+	go test -v ./...
+
+.DEFAULT_GOAL := start

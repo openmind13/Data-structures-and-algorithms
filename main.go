@@ -6,6 +6,7 @@ import (
 	"github.com/openmind13/data-structures-and-algorithms/binarytree"
 	"github.com/openmind13/data-structures-and-algorithms/linkedlist"
 	"github.com/openmind13/data-structures-and-algorithms/queue"
+	sorting "github.com/openmind13/data-structures-and-algorithms/sort"
 	"github.com/openmind13/data-structures-and-algorithms/stack"
 )
 
@@ -14,10 +15,20 @@ func main() {
 	fmt.Printf("data-structures-and-algorithms\n")
 	// fmt.Printf("------------------------------\n")
 
-	testBinaryTree()
+	//testBubbleSort()
+	// testBinaryTree()
 	// testStack()
 	// testLinkedList()
 	// testQueue()
+}
+
+func testBubbleSort() {
+	fmt.Printf("testing bubble sort\n")
+
+	buffer := []int{8, 5, 2, 7, 4}
+	fmt.Println(buffer)
+	buffer = sorting.BubbleSort(buffer)
+	fmt.Println(buffer)
 }
 
 func testBinaryTree() {
@@ -109,4 +120,9 @@ func testQueue() {
 
 	slice := queue.Dequeue()
 	fmt.Println(slice)
+}
+
+func testGraph() {
+	fmt.Printf("testing graph\n")
+
 }

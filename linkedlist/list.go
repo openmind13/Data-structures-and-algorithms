@@ -117,6 +117,54 @@ func (list *List) AddTail(value ItemType) {
 	list.length++
 }
 
+// RemoveItem - find first value and remove it from list
+func (list *List) RemoveItem(item ItemType) error {
+	node := list.head
+
+	for node != nil {
+		if node.value.(int) == item.(int) {
+			// if only one element in list
+			if node.next == nil && node.prev == nil {
+				list.head = nil
+				list.tail = nil
+			}
+
+			// in the middle
+			if node.prev != nil && node.next != nil {
+				next := node.next
+				prev := node.prev
+
+				next.prev = prev
+				prev.next = next
+			}
+
+			// if element is firts
+			if node.prev == nil && node.next != nil {
+				next := node.next
+				next.prev = nil
+
+				list.head = next
+			}
+
+			// if element if last
+			if node.next == nil && node.prev != nil {
+				prev := node.prev
+				prev.next = nil
+
+				list.tail = prev
+			}
+
+			node = nil
+			list.length--
+			return nil
+		}
+
+		node = node.next
+	}
+
+	return errors.New("Item not found")
+}
+
 // Clear all list
 func (list *List) Clear() {
 	// GC will delete all unattainable nodes

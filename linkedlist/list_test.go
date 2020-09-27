@@ -16,4 +16,10 @@ func TestLinkedList(t *testing.T) {
 
 	mylist.AddTail(200)
 	assert.Equal(t, 4, mylist.Size())
+
+	mylist.AddHead(100)
+
+	err := mylist.RemoveItem(200)
+	assert.NoError(t, err)
+	assert.Equal(t, 4, mylist.Size())
 }
